@@ -18,6 +18,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         sceneView.delegate = self
         sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
+        // box looks very 2-Dimensional. In order to rectify that, we do the following which adds default lighting
+        sceneView.autoenablesDefaultLighting = true
         
         // we are creating a cube with specified size
         let cube = SCNBox(width: 0.3, height: 0.3, length: 0.3, chamferRadius: 0.0)
