@@ -36,6 +36,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // we place the cube 1m in front of us. Positive Z is behind us, so in order for the box to show in front of us, we'll negate the integer
         cubeNode.position = SCNVector3(0.0, 0.0, -1.0)
         
+        // we specify the rotation to be 360 degrees (2 x pi) with a duration of 2 seconds. The same outcome can be achieved by specifying 180 degrees in 1 second (the duration specifies the timeframe in seconds in which the rotation is performed.) The rotation follows along the y axis.
+        let rotation = SCNAction.rotateBy(x: 0, y: 1 * .pi, z: 0, duration: 1)
+        // we can specify it to rotate indefinetely or not
+        let repeatRotation = SCNAction.repeatForever(rotation)
+        cubeNode.runAction(repeatRotation)
+        
         sceneView.scene.rootNode.addChildNode(cubeNode)
         
     }
